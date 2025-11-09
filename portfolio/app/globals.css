@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- Add this block to app/globals.css --- */
+.animated-gradient {
+  /* Use Tailwind colors for the gradient */
+  background: linear-gradient(
+    120deg, 
+    #4FACFE 0%, /* primary-start */
+    #00F2FE 50%, /* primary-end */
+    #A3FF12 100% /* highlight */
+  );
+  
+  /* Crucial properties for animation */
+  background-size: 200% 200%; 
+  background-attachment: fixed; /* Ensures a smooth, fixed effect */
+  background-repeat: no-repeat; /* Prevents tiling */
+  
+  /* Apply the animation defined in tailwind.config.ts */
+  animation: fluid-bg 20s ease infinite;
+}
+/* ------------------------------------------ */
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 245, 245, 255; /* Your #F5F5FF */
+  --background-end-rgb: 245, 245, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  
+  /* Use your light base color */
+  background-color: #F5F5FF; 
+  
+  /* Smooth font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
